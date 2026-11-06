@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions - Babomark Limited</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- ScrollReveal JS -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <style>
+        /* ==============================
+           BRAND COLORS & GLOBAL STYLES
+        ================================ */
+        :root {
+            --burgundy: #800020;
+            --burgundy-light: #A30D2D;
+            --charcoal: #252A2E;
+            --steel: #555B60;
+            --silver: #AEB4B9;
+            --light-bg: #F8F9FA;
+            --white: #FFFFFF;
+            --font-main: 'DM Sans', sans-serif;
+            --font-heading: 'Montserrat', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--charcoal);
+            background-color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            color: var(--charcoal);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 90px 0;
+        }
+
+        /* Subtitle Badge Styling */
+        .section-subtitle {
+            font-family: var(--font-heading);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--burgundy);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle::before {
+            content: '';
+            display: inline-block;
+            width: 25px;
+            height: 2px;
+            background-color: var(--burgundy);
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 800;
+            line-height: 1.25;
+            margin-bottom: 20px;
+            color: var(--charcoal);
+        }
+
+        .section-title span {
+            color: var(--burgundy);
+        }
+
+        /* Buttons */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: var(--burgundy);
+            color: var(--white);
+            padding: 14px 28px;
+            font-family: var(--font-heading);
+            font-size: 13px;
+            font-weight: 700;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--burgundy-light);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(128, 0, 32, 0.25);
+        }
+
+        /* ==============================
+           PAGE HEADER / BREADCRUMB
+        ================================ */
+        .page-header {
+            background: linear-gradient(rgba(37, 42, 46, 0.85), rgba(37, 42, 46, 0.85)), 
+                        url('https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            padding: 100px 0;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .page-header h1 {
+            color: var(--white);
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: var(--silver);
+        }
+
+        .breadcrumb a {
+            color: var(--white);
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--burgundy-light);
+        }
+
+        .breadcrumb .active {
+            color: var(--burgundy-light);
+            font-weight: 600;
+        }
+
+        /* ==============================
+           TERMS & CONDITIONS CONTENT
+        ================================ */
+        .terms-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: var(--white);
+        }
+
+        .terms-meta {
+            font-size: 14px;
+            color: var(--steel);
+            border-bottom: 2px solid var(--light-bg);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .terms-meta span {
+            font-weight: 700;
+            color: var(--burgundy);
+        }
+
+        .terms-section {
+            margin-bottom: 40px;
+        }
+
+        .terms-section h2 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--charcoal);
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .terms-section h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 4px;
+            bottom: 4px;
+            width: 4px;
+            background-color: var(--burgundy);
+            border-radius: 2px;
+        }
+
+        .terms-section p {
+            color: var(--steel);
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .terms-list {
+            list-style: none;
+            margin: 15px 0 20px 0;
+            padding-left: 5px;
+        }
+
+        .terms-list li {
+            position: relative;
+            padding-left: 25px;
+            color: var(--steel);
+            font-size: 15px;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .terms-list li::before {
+            content: '\f054';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 3px;
+            color: var(--burgundy);
+            font-size: 11px;
+        }
+
+        .highlight-box {
+            background-color: var(--light-bg);
+            border-left: 4px solid var(--burgundy);
+            padding: 20px 25px;
+            border-radius: 0 6px 6px 0;
+            margin: 25px 0;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+            font-weight: 500;
+            color: var(--charcoal);
+        }
+
+        /* ==============================
+           CTA BANNER
+        ================================ */
+        .cta-banner {
+            background: linear-gradient(rgba(37, 42, 46, 0.92), rgba(37, 42, 46, 0.92)), 
+                        url('https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=1600&q=80') center/cover fixed;
+            color: var(--white);
+            padding: 75px 0;
+            text-align: center;
+        }
+
+        .cta-banner h2 {
+            color: var(--white);
+            font-size: 34px;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .cta-banner p {
+            color: var(--silver);
+            max-width: 650px;
+            margin: 0 auto 30px auto;
+            font-size: 16px;
+        }
+
+        /* ==============================
+           RESPONSIVE DESIGN
+        ================================ */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 28px;
+            }
+            .terms-section h2 {
+                font-size: 19px;
+            }
+            .terms-meta {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="reveal-header">Terms & Conditions</h1>
+            <div class="breadcrumb reveal-header">
+                <a href="index.html">Home</a>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span class="active">Terms & Conditions</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Terms Content Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="terms-wrapper">
+                
+                <div class="terms-meta reveal-up">
+                    <div>Effective Date: <span>November 2026</span></div>
+                    <div>Jurisdiction: <span>United Republic of Tanzania</span></div>
+                </div>
+
+                <!-- Section 1 -->
+                <div class="terms-section reveal-up">
+                    <h2>1. Acceptance of Terms</h2>
+                    <p>By accessing or using the website and corporate web services of <strong>Babomark Limited</strong>, submitting inquiries, or requesting project quotes, you agree to be bound by these Terms and Conditions. If you do not accept all terms stated herein, you must refrain from using our digital platforms or services.</p>
+                </div>
+
+                <!-- Section 2 -->
+                <div class="terms-section reveal-up">
+                    <h2>2. Scope of Services & Quotations</h2>
+                    <p>Babomark Limited provides engineering and heavy civil construction solutions across building construction, cellular tower civil infrastructure, highway paving, port logistics facilities, agribusiness structures, and earthworks site preparation.</p>
+                    <ul class="terms-list">
+                        <li><strong>Quotations & Proposals:</strong> All technical quotes, proposals, and Bill of Quantities (BOQ) estimations generated through our website or email communications are indicative unless supported by a formal signed agreement.</li>
+                        <li><strong>Site Evaluations:</strong> Binding construction contracts are contingent upon physical site inspections, soil quality verification, and structural engineering approvals.</li>
+                    </ul>
+                </div>
+
+                <!-- Section 3 -->
+                <div class="terms-section reveal-up">
+                    <h2>3. Intellectual Property Rights</h2>
+                    <p>Unless otherwise indicated, all architectural graphics, project photography, brand collateral, engineering design documentation, logos, and website code published on this site are the exclusive property of Babomark Limited.</p>
+                    <ul class="terms-list">
+                        <li>You are granted a limited license to view and download site content for non-commercial personal or evaluation purposes only.</li>
+                        <li>Reproduction, modification, or distribution of proprietary images, engineering designs, or technical layouts without prior written authorization is strictly prohibited.</li>
+                    </ul>
+                </div>
+
+                <!-- Section 4 -->
+                <div class="terms-section reveal-up">
+                    <h2>4. Safety Standards & Site Compliance</h2>
+                    <p>Safety, quality, and environmental sustainability remain central to our operational policies. Clients, sub-contractors, and site visitors associated with Babomark projects must strictly adhere to statutory Health, Safety, and Environment (HSE) protocols established under Tanzanian regulatory framework.</p>
+
+                    <div class="highlight-box">
+                        <p><i class="fa-solid fa-scale-balanced" style="color: var(--burgundy); margin-right: 8px;"></i> All physical site activities and contractual engagements executed by Babomark Limited strictly comply with national building codes and statutory laws enforced within the United Republic of Tanzania.</p>
+                    </div>
+                </div>
+
+                <!-- Section 5 -->
+                <div class="terms-section reveal-up">
+                    <h2>5. Limitation of Liability</h2>
+                    <p>While Babomark Limited makes reasonable efforts to provide accurate and up-to-date technical information on this website, we make no warranties, express or implied, regarding website uptime, complete data accuracy, or uninterrupted service availability.</p>
+                    <p>Babomark Limited will not be held liable for any indirect, incidental, or consequential damages resulting from your reliance on site content or temporary digital service interruptions.</p>
+                </div>
+
+                <!-- Section 6 -->
+                <div class="terms-section reveal-up">
+                    <h2>6. Governing Law & Dispute Resolution</h2>
+                    <p>These Terms and Conditions shall be governed by and construed in accordance with the laws of the United Republic of Tanzania. Any disputes arising out of or in connection with the use of this website or commercial engagements shall be subject to the exclusive jurisdiction of the competent courts of Tanzania.</p>
+                </div>
+
+                <!-- Section 7 -->
+                <div class="terms-section reveal-up">
+                    <h2>7. Amendments to Terms</h2>
+                    <p>Babomark Limited reserves the right to revise or update these Terms and Conditions at any time without prior notice. Continued use of our website or services following any updates signifies your acceptance of the revised terms.</p>
+                </div>
+
+                <!-- Section 8 -->
+                <div class="terms-section reveal-up">
+                    <h2>8. Contact Information</h2>
+                    <p>If you have any questions or require clarification regarding our Terms & Conditions, please reach out to our legal and administrative team:</p>
+                    <p style="color: var(--charcoal); font-weight: 600;">
+                        Babomark Limited — Legal & Compliance Department<br>
+                        Plot 45, Enterprise Road, Industrial Area<br>
+                        Dar es Salaam, Tanzania<br>
+                        Email: <a href="mailto:info@babomark.co.tz" style="color: var(--burgundy);">info@babomark.co.tz</a>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <section class="cta-banner reveal-up">
+        <div class="container">
+            <h2>Ready to Start Your Construction Project?</h2>
+            <p>Get in touch with our engineering team to receive a professional proposal and project evaluation.</p>
+            <a href="contact.html" class="btn-primary">
+                Contact Our Team <i class="fa-solid fa-paper-plane"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- ScrollReveal Initialization Script -->
+    <script>
+        const sr = ScrollReveal({
+            origin: 'bottom',
+            distance: '50px',
+            duration: 1000,
+            delay: 150,
+            reset: false,
+            easing: 'cubic-bezier(0.5, 0, 0, 1)'
+        });
+
+        sr.reveal('.reveal-header', { interval: 100, origin: 'top' });
+        sr.reveal('.reveal-up', { interval: 150, origin: 'bottom' });
+    </script>
+</body>
+</html>

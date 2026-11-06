@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently Asked Questions - Babomark Limited</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- ScrollReveal JS -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <style>
+        /* ==============================
+           BRAND COLORS & GLOBAL STYLES
+        ================================ */
+        :root {
+            --burgundy: #800020;
+            --burgundy-light: #A30D2D;
+            --charcoal: #252A2E;
+            --steel: #555B60;
+            --silver: #AEB4B9;
+            --light-bg: #F8F9FA;
+            --white: #FFFFFF;
+            --font-main: 'DM Sans', sans-serif;
+            --font-heading: 'Montserrat', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--charcoal);
+            background-color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            color: var(--charcoal);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 90px 0;
+        }
+
+        /* Subtitle Badge Styling */
+        .section-subtitle {
+            font-family: var(--font-heading);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--burgundy);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle::before {
+            content: '';
+            display: inline-block;
+            width: 25px;
+            height: 2px;
+            background-color: var(--burgundy);
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 800;
+            line-height: 1.25;
+            margin-bottom: 20px;
+            color: var(--charcoal);
+        }
+
+        .section-title span {
+            color: var(--burgundy);
+        }
+
+        /* Buttons */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: var(--burgundy);
+            color: var(--white);
+            padding: 14px 28px;
+            font-family: var(--font-heading);
+            font-size: 13px;
+            font-weight: 700;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--burgundy-light);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(128, 0, 32, 0.25);
+        }
+
+        /* ==============================
+           PAGE HEADER / BREADCRUMB
+        ================================ */
+        .page-header {
+            background: linear-gradient(rgba(37, 42, 46, 0.85), rgba(37, 42, 46, 0.85)), 
+                        url('https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            padding: 100px 0;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .page-header h1 {
+            color: var(--white);
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: var(--silver);
+        }
+
+        .breadcrumb a {
+            color: var(--white);
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--burgundy-light);
+        }
+
+        .breadcrumb .active {
+            color: var(--burgundy-light);
+            font-weight: 600;
+        }
+
+        /* ==============================
+           FAQ ACCORDION SECTION
+        ================================ */
+        .faq-header {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 50px auto;
+        }
+
+        .faq-wrapper {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: var(--white);
+            border: 1px solid #EAEAEA;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            overflow: hidden;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .faq-item.active {
+            border-color: var(--burgundy);
+            box-shadow: 0 8px 25px rgba(128, 0, 32, 0.08);
+        }
+
+        .faq-question {
+            padding: 22px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+            background-color: var(--white);
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question h3 {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--charcoal);
+            margin: 0;
+            padding-right: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .faq-item.active .faq-question h3 {
+            color: var(--burgundy);
+        }
+
+        .faq-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: var(--light-bg);
+            color: var(--burgundy);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            flex-shrink: 0;
+            transition: transform 0.4s ease, background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+            background-color: var(--burgundy);
+            color: var(--white);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            background-color: var(--white);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding: 0 25px 25px 25px;
+        }
+
+        .faq-answer p {
+            color: var(--steel);
+            font-size: 15px;
+            line-height: 1.7;
+            border-top: 1px solid #F0F0F0;
+            padding-top: 15px;
+            margin: 0;
+        }
+
+        /* ==============================
+           CTA BANNER
+        ================================ */
+        .cta-banner {
+            background: linear-gradient(rgba(37, 42, 46, 0.92), rgba(37, 42, 46, 0.92)), 
+                        url('https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=1600&q=80') center/cover fixed;
+            color: var(--white);
+            padding: 75px 0;
+            text-align: center;
+        }
+
+        .cta-banner h2 {
+            color: var(--white);
+            font-size: 34px;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .cta-banner p {
+            color: var(--silver);
+            max-width: 650px;
+            margin: 0 auto 30px auto;
+            font-size: 16px;
+        }
+
+        /* ==============================
+           RESPONSIVE DESIGN
+        ================================ */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 28px;
+            }
+            .faq-question h3 {
+                font-size: 15px;
+            }
+            .faq-question {
+                padding: 18px 20px;
+            }
+            .faq-item.active .faq-answer {
+                padding: 0 20px 20px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="reveal-header">Frequently Asked Questions</h1>
+            <div class="breadcrumb reveal-header">
+                <a href="index.html">Home</a>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span class="active">FAQ</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Accordion Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="faq-header reveal-up">
+                <span class="section-subtitle">Common Queries</span>
+                <h2 class="section-title">Everything You Need To Know About <span>Our Operations</span></h2>
+                <p style="color: var(--steel);">Find clear answers regarding our construction processes, infrastructure capabilities, safety standards, and project timelines across Tanzania.</p>
+            </div>
+
+            <div class="faq-wrapper">
+                
+                <!-- FAQ Item 1 -->
+                <div class="faq-item reveal-faq active">
+                    <div class="faq-question">
+                        <h3>What areas and regions within Tanzania do you operate in?</h3>
+                        <div class="faq-icon">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Babomark Limited operates nationwide across Tanzania. We have active logistics networks and specialized field engineering teams capable of mobilizing to urban centers like Dar es Salaam, Dodoma, Arusha, and Mwanza, as well as remote rural regions for specialized telecom tower and agribusiness infrastructure development.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item reveal-faq">
+                    <div class="faq-question">
+                        <h3>What types of engineering and construction projects do you handle?</h3>
+                        <div class="faq-icon">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our core capabilities include commercial & residential building construction, telecommunication tower civil works, highway and asphalt paving, port & logistics terminal paving, agribusiness infrastructure (irrigation systems & storage), and bulk earthworks/site preparation.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item reveal-faq">
+                    <div class="faq-question">
+                        <h3>How do I request a quotation or tender proposal for my project?</h3>
+                        <div class="faq-icon">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You can submit your project details directly through our <a href="contact.html" style="color: var(--burgundy); font-weight: 700;">Contact Page</a> or email your project blueprints/Bill of Quantities (BOQ) to <strong>info@babomark.co.tz</strong>. Our estimating team will conduct a thorough review and issue a detailed proposal within 3 to 5 business days.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq-item reveal-faq">
+                    <div class="faq-question">
+                        <h3>What quality assurance and safety standards does Babomark follow?</h3>
+                        <div class="faq-icon">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We maintain a strict 100% Quality Standard policy, complying fully with Tanzanian national building codes and international HSE (Health, Safety, and Environment) regulations. Every project undergoes rigorous structural concrete testing, soil compaction evaluations, and ongoing safety audits.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="faq-item reveal-faq">
+                    <div class="faq-question">
+                        <h3>Do you execute turnkey projects including design and site preparation?</h3>
+                        <div class="faq-icon">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes. We offer end-to-end turnkey services, taking projects from initial site clearing and soil grading to architectural structural execution and final site commissioning. We manage procurement, machinery deployment, and skilled labor management seamlessly.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 6 -->
+                <div class="faq-item reveal-faq">
+                    <div class="faq-question">
+                        <h3>How do you handle project timelines and seasonal weather challenges?</h3>
+                        <div class="faq-icon">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We utilize advanced project management methodologies that account for local seasonal weather patterns, such as heavy rain seasons in Tanzania. By establishing robust drainage solutions and contingency schedules early, we ensure high project delivery rates without compromising structural integrity.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <section class="cta-banner reveal-up">
+        <div class="container">
+            <h2>Still Have Questions?</h2>
+            <p>Our technical team is available to assist you with any inquiries regarding our services, technical specs, or custom project pricing.</p>
+            <a href="contact.html" class="btn-primary">
+                Contact Our Support <i class="fa-solid fa-headset"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- JavaScript for Accordion Interactivity & ScrollReveal -->
+    <script>
+        // Accordion Interactive Logic
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all accordion items
+                faqItems.forEach(i => i.classList.remove('active'));
+                
+                // Toggle clicked item if it wasn't already active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // ScrollReveal Setup
+        const sr = ScrollReveal({
+            origin: 'bottom',
+            distance: '50px',
+            duration: 1000,
+            delay: 150,
+            reset: false,
+            easing: 'cubic-bezier(0.5, 0, 0, 1)'
+        });
+
+        sr.reveal('.reveal-header', { interval: 100, origin: 'top' });
+        sr.reveal('.reveal-up', { origin: 'bottom' });
+        sr.reveal('.reveal-faq', { interval: 150, distance: '40px' });
+    </script>
+</body>
+</html>

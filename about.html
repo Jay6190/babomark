@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Babomark Limited</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- ScrollReveal JS -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <style>
+        /* ==============================
+           BRAND COLORS & GLOBAL STYLES
+        ================================ */
+        :root {
+            --burgundy: #800020;
+            --burgundy-light: #A30D2D;
+            --charcoal: #252A2E;
+            --steel: #555B60;
+            --silver: #AEB4B9;
+            --light-bg: #F8F9FA;
+            --white: #FFFFFF;
+            --font-main: 'DM Sans', sans-serif;
+            --font-heading: 'Montserrat', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--charcoal);
+            background-color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            color: var(--charcoal);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 90px 0;
+        }
+
+        /* Subtitle Badge Styling */
+        .section-subtitle {
+            font-family: var(--font-heading);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--burgundy);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle::before {
+            content: '';
+            display: inline-block;
+            width: 25px;
+            height: 2px;
+            background-color: var(--burgundy);
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 800;
+            line-height: 1.25;
+            margin-bottom: 20px;
+            color: var(--charcoal);
+        }
+
+        .section-title span {
+            color: var(--burgundy);
+        }
+
+        /* Buttons */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--burgundy);
+            color: var(--white);
+            padding: 14px 32px;
+            font-family: var(--font-heading);
+            font-size: 14px;
+            font-weight: 700;
+            border-radius: 4px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--burgundy-light);
+            transform: translateY(-2px);
+        }
+
+        /* ==============================
+           PAGE HEADER / BREADCRUMB
+        ================================ */
+        .page-header {
+            background: linear-gradient(rgba(37, 42, 46, 0.85), rgba(37, 42, 46, 0.85)), 
+                        url('https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            padding: 100px 0;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .page-header h1 {
+            color: var(--white);
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: var(--silver);
+        }
+
+        .breadcrumb a {
+            color: var(--white);
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--burgundy-light);
+        }
+
+        .breadcrumb .active {
+            color: var(--burgundy-light);
+            font-weight: 600;
+        }
+
+        /* ==============================
+           ABOUT OVERVIEW SECTION
+        ================================ */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image-wrapper {
+            position: relative;
+        }
+
+        .main-img-box {
+            position: relative;
+            width: 85%;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .main-img-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .badge-100 {
+            position: absolute;
+            top: 20px;
+            left: -20px;
+            background-color: var(--burgundy);
+            color: var(--white);
+            padding: 20px 25px;
+            border-radius: 4px;
+            box-shadow: 0 10px 20px rgba(128, 0, 32, 0.3);
+            z-index: 2;
+        }
+
+        .badge-100 h3 {
+            color: var(--white);
+            font-size: 32px;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .badge-100 p {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .secondary-img-box {
+            position: absolute;
+            bottom: -30px;
+            right: 0;
+            width: 55%;
+            border: 6px solid var(--white);
+            border-radius: 6px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+            overflow: hidden;
+            z-index: 3;
+        }
+
+        .secondary-img-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-content p {
+            color: var(--steel);
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+
+        .feature-checklist {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 30px 0 35px 0;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--charcoal);
+        }
+
+        .check-item i {
+            color: var(--burgundy);
+            font-size: 16px;
+        }
+
+        /* ==============================
+           MISSION & VISION SECTION
+        ================================ */
+        .mv-section {
+            background-color: var(--light-bg);
+        }
+
+        .mv-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .mv-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 6px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border-bottom: 4px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .mv-card:hover {
+            transform: translateY(-8px);
+            border-bottom-color: var(--burgundy);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+        }
+
+        .mv-icon {
+            width: 65px;
+            height: 65px;
+            background-color: rgba(128, 0, 32, 0.08);
+            color: var(--burgundy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .mv-card:hover .mv-icon {
+            background-color: var(--burgundy);
+            color: var(--white);
+        }
+
+        .mv-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .mv-card p {
+            color: var(--steel);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* ==============================
+           MEET OUR TEAM SECTION
+        ================================ */
+        .team-header {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 50px auto;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .team-card {
+            background-color: var(--white);
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-img-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-img-wrapper img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .team-card:hover .team-img-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .team-socials {
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            background: rgba(37, 42, 46, 0.9);
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 12px 0;
+            transition: bottom 0.3s ease;
+        }
+
+        .team-card:hover .team-socials {
+            bottom: 0;
+        }
+
+        .team-socials a {
+            color: var(--white);
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .team-socials a:hover {
+            color: var(--burgundy-light);
+        }
+
+        .team-info {
+            padding: 25px 20px;
+            text-align: center;
+        }
+
+        .team-info h4 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .team-info p {
+            color: var(--burgundy);
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ==============================
+           STATS COUNTER SECTION
+        ================================ */
+        .stats-section {
+            background: linear-gradient(rgba(37, 42, 46, 0.92), rgba(37, 42, 46, 0.92)), 
+                        url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=80') center/cover fixed;
+            color: var(--white);
+            padding: 70px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            color: var(--white);
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        .stat-item h3 span {
+            color: var(--burgundy-light);
+        }
+
+        .stat-item p {
+            color: var(--silver);
+            font-size: 14px;
+            font-family: var(--font-heading);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ==============================
+           RESPONSIVE DESIGN
+        ================================ */
+        @media (max-width: 992px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .mv-grid {
+                grid-template-columns: 1fr;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            .feature-checklist {
+                grid-template-columns: 1fr;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .section-title {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="reveal-header">About Our Company</h1>
+            <div class="breadcrumb reveal-header">
+                <a href="index.html">Home</a>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span class="active">About Us</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Overview Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="about-grid">
+                <!-- Left Column: Image Stack -->
+                <div class="about-image-wrapper reveal-left">
+                    <div class="badge-100">
+                        <h3>100%</h3>
+                        <p>Quality Standards</p>
+                    </div>
+                    <div class="main-img-box">
+                        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80" alt="Architect working on blueprint">
+                    </div>
+                    <div class="secondary-img-box">
+                        <img src="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=500&q=80" alt="Construction site telecommunication tower">
+                    </div>
+                </div>
+
+                <!-- Right Column: Content -->
+                <div class="about-content reveal-right">
+                    <span class="section-subtitle">About Our Company</span>
+                    <h2 class="section-title">Building With Purpose. <br><span>Delivering With Excellence.</span></h2>
+                    
+                    <p>We are a dedicated construction company committed to delivering quality building, engineering and infrastructure solutions. Through professional expertise, innovation and attention to detail, we turn our clients' visions into reality.</p>
+                    
+                    <p>Our approach combines skilled professionals, modern construction techniques and a commitment to safety, quality and timely project delivery.</p>
+
+                    <div class="feature-checklist">
+                        <div class="check-item">
+                            <i class="fa-solid fa-circle-check"></i> Quality Workmanship
+                        </div>
+                        <div class="check-item">
+                            <i class="fa-solid fa-circle-check"></i> Professional Team
+                        </div>
+                        <div class="check-item">
+                            <i class="fa-solid fa-circle-check"></i> On-Time Delivery
+                        </div>
+                        <div class="check-item">
+                            <i class="fa-solid fa-circle-check"></i> Customer Satisfaction
+                        </div>
+                    </div>
+
+                    <a href="contact.html" class="btn-primary">
+                        Contact Us <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission, Vision & Values Section -->
+    <section class="section-padding mv-section">
+        <div class="container">
+            <div class="mv-grid">
+                <div class="mv-card reveal-card">
+                    <div class="mv-icon">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <h3>Our Mission</h3>
+                    <p>To deliver superior construction and infrastructure solutions by utilizing advanced engineering, adhering to strict safety protocols, and ensuring complete customer satisfaction across all projects.</p>
+                </div>
+
+                <div class="mv-card reveal-card">
+                    <div class="mv-icon">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+                    <h3>Our Vision</h3>
+                    <p>To become a leading regional benchmark in the construction industry, recognized for our commitment to sustainable building, technical excellence, and unyielding integrity.</p>
+                </div>
+
+                <div class="mv-card reveal-card">
+                    <div class="mv-icon">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3>Core Values</h3>
+                    <p>Integrity, quality craftsmanship, environmental responsibility, safety first, and relentless dedication to exceeding our clients' expectations in every milestone.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet Our Team Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="team-header reveal-up">
+                <span class="section-subtitle">Expert Team</span>
+                <h2 class="section-title">Meet Our <span>Leadership</span></h2>
+                <p style="color: var(--steel);">Our success is driven by a passionate group of industry leaders, engineers, and project management experts.</p>
+            </div>
+
+            <div class="team-grid">
+                <!-- Team Member 1 -->
+                <div class="team-card reveal-team">
+                    <div class="team-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=500&q=80" alt="Executive Director">
+                        <div class="team-socials">
+                            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#"><i class="fa-solid fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h4>Robert Sterling</h4>
+                        <p>Managing Director</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="team-card reveal-team">
+                    <div class="team-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=500&q=80" alt="Chief Engineer">
+                        <div class="team-socials">
+                            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#"><i class="fa-solid fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h4>Sarah Jenkins</h4>
+                        <p>Chief Civil Engineer</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="team-card reveal-team">
+                    <div class="team-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=500&q=80" alt="Project Manager">
+                        <div class="team-socials">
+                            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#"><i class="fa-solid fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h4>David Chen</h4>
+                        <p>Head of Project Operations</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 4 -->
+                <div class="team-card reveal-team">
+                    <div class="team-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=500&q=80" alt="Safety Director">
+                        <div class="team-socials">
+                            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#"><i class="fa-solid fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h4>Elena Rostova</h4>
+                        <p>HSE & Quality Director</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Counter Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item reveal-stat">
+                    <h3>250<span>+</span></h3>
+                    <p>Projects Completed</p>
+                </div>
+                <div class="stat-item reveal-stat">
+                    <h3>15<span>+</span></h3>
+                    <p>Years Experience</p>
+                </div>
+                <div class="stat-item reveal-stat">
+                    <h3>120<span>+</span></h3>
+                    <p>Expert Workers</p>
+                </div>
+                <div class="stat-item reveal-stat">
+                    <h3>100<span>%</span></h3>
+                    <p>Client Satisfaction</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ScrollReveal Initialization Script -->
+    <script>
+        // Global ScrollReveal Configuration
+        const sr = ScrollReveal({
+            origin: 'bottom',
+            distance: '50px',
+            duration: 1000,
+            delay: 150,
+            reset: false,
+            easing: 'cubic-bezier(0.5, 0, 0, 1)'
+        });
+
+        // Page Header
+        sr.reveal('.reveal-header', { interval: 100, origin: 'top' });
+
+        // About Section (Left Image slide, Right text slide)
+        sr.reveal('.reveal-left', { origin: 'left', distance: '80px' });
+        sr.reveal('.reveal-right', { origin: 'right', distance: '80px' });
+
+        // Mission/Vision Cards (Staggered fade up)
+        sr.reveal('.reveal-card', { interval: 200, distance: '40px' });
+
+        // Team Header & Grid
+        sr.reveal('.reveal-up', { origin: 'bottom' });
+        sr.reveal('.reveal-team', { interval: 150, distance: '60px' });
+
+        // Stats Items
+        sr.reveal('.reveal-stat', { interval: 150, scale: 0.9 });
+    </script>
+</body>
+</html>

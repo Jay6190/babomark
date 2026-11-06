@@ -1,0 +1,868 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Construction Company | Building Excellence</title>
+    <meta name="description" content="Professional construction, engineering and building solutions.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<style>
+
+/* ==============================
+   BRAND COLORS
+================================ */
+
+:root {
+    --burgundy: #800020;
+    --burgundy-light: #A30D2D;
+    --charcoal: #252A2E;
+    --steel: #555B60;
+    --silver: #AEB4B9;
+    --white: #FFFFFF;
+    --font-main: 'DM Sans', sans-serif;
+    --font-heading: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--charcoal);
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    width: min(1200px, 90%);
+    margin: auto;
+}
+
+
+/* ==============================
+   NAVBAR
+================================ */
+
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(37, 42, 46, 0.25);
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    backdrop-filter: blur(12px);
+}
+
+.navbar {
+    height: 88px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+/* LOGO */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--white);
+    flex-shrink: 0;
+}
+
+.logo-icon {
+    width: 47px;
+    height: 47px;
+    background: var(--burgundy-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 23px;
+    border-radius: 5px;
+}
+
+.logo-text {
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+}
+
+.logo-text span {
+    color: #E7AAB9;
+}
+
+.logo-text small {
+    display: block;
+    font-size: 8px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin-top: 5px;
+    color: var(--silver);
+}
+
+/* NAV LINKS */
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.nav-menu li a {
+    color: rgba(255,255,255,0.85);
+    font-size: 13px;
+    font-weight: 600;
+    transition: 0.3s;
+    position: relative;
+}
+
+.nav-menu li a:hover,
+.nav-menu li a.active {
+    color: var(--white);
+}
+
+.nav-menu li a.active::after {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 2px;
+    background: var(--burgundy-light);
+    bottom: -10px;
+    left: 0;
+}
+
+.nav-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 13px;
+    background: var(--burgundy-light);
+    color: var(--white);
+    padding: 15px 22px;
+    font-size: 12px;
+    font-weight: 700;
+    transition: 0.3s;
+    border-radius: 3px;
+    white-space: nowrap;
+}
+
+.nav-cta:hover {
+    background: var(--burgundy);
+    transform: translateY(-2px);
+}
+
+.mobile-contact,
+.menu-toggle {
+    display: none;
+}
+
+
+/* ==============================
+   HERO SECTION
+================================ */
+
+.hero {
+    min-height: 760px;
+    height: 100vh;
+    max-height: 950px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background:
+        url("https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=2000&q=85")
+        center 45% / cover no-repeat;
+    color: var(--white);
+    overflow: hidden;
+}
+/* Add or adjust inside your media queries or main hero style */
+@media (max-width: 1200px) {
+    .hero {
+        height: auto;
+        min-height: 700px;
+        padding: 120px 0 60px; /* Adds breathing room top and bottom */
+        align-items: flex-start;
+    }
+}
+
+/* DARK OVERLAY */
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(37,42,46,0.97) 0%,
+            rgba(37,42,46,0.90) 38%,
+            rgba(37,42,46,0.55) 70%,
+            rgba(37,42,46,0.35) 100%
+        ),
+        linear-gradient(
+            0deg,
+            rgba(128,0,32,0.35),
+            transparent 60%
+        );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding-top: 100px;
+}
+
+/* HERO TEXT */
+
+.hero-text {
+    max-width: 720px;
+}
+
+.hero-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: #E7AAB9;
+    margin-bottom: 25px;
+}
+
+.hero-label span {
+    display: inline-block;
+    width: 35px;
+    height: 2px;
+    background: var(--burgundy-light);
+}
+
+.hero-text h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(40px, 5.3vw, 70px);
+    line-height: 1.15;
+    font-weight: 900;
+    letter-spacing: -2.5px;
+    margin-bottom: 25px;
+}
+
+.hero-text h1 span {
+    color: #DDA0B1;
+}
+
+.hero-text > p {
+    max-width: 590px;
+    color: rgba(255,255,255,0.78);
+    font-size: 15px;
+    line-height: 1.9;
+    margin-bottom: 35px;
+}
+
+/* HERO BUTTONS */
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.btn-primary,
+.btn-outline {
+    min-height: 55px;
+    padding: 0 25px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    font-size: 12px;
+    font-weight: 700;
+    transition: 0.3s;
+    border-radius: 3px;
+}
+
+.btn-primary {
+    background: var(--burgundy-light);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background: var(--burgundy);
+    transform: translateY(-3px);
+}
+
+.btn-outline {
+    border: 1px solid rgba(255,255,255,0.55);
+    color: var(--white);
+}
+
+.btn-outline:hover {
+    background: var(--white);
+    color: var(--charcoal);
+}
+
+/* TRUST TEXT */
+
+.hero-trust {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 55px;
+}
+
+.trust-line {
+    width: 35px;
+    height: 2px;
+    background: var(--burgundy-light);
+}
+
+.hero-trust span {
+    font-size: 10px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    color: var(--silver);
+}
+
+
+/* ==============================
+   HERO STATISTICS
+================================ */
+
+.hero-bottom {
+    display: flex;
+    align-items: center;
+    gap: 45px;
+    margin-top: 65px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    max-width: 720px;
+}
+
+.hero-stat h3 {
+    font-family: var(--font-heading);
+    font-size: 30px;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.hero-stat h3 span {
+    color: #DDA0B1;
+}
+
+.hero-stat p {
+    font-size: 11px;
+    color: var(--silver);
+}
+
+.stat-divider {
+    width: 1px;
+    height: 45px;
+    background: rgba(255,255,255,0.25);
+}
+
+
+/* SCROLL INDICATOR */
+
+.hero-scroll {
+    position: absolute;
+    right: 5%;
+    bottom: 45px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 2;
+    color: var(--silver);
+}
+
+.hero-scroll span {
+    font-size: 9px;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.hero-scroll i {
+    color: #DDA0B1;
+}
+
+
+/* ==============================
+   TABLET RESPONSIVENESS
+================================ */
+
+@media (max-width: 1024px) {
+
+    .navbar {
+        gap: 15px;
+    }
+
+    .nav-menu {
+        gap: 18px;
+    }
+
+    .nav-menu li a {
+        font-size: 12px;
+    }
+
+    .desktop-contact {
+        padding: 13px 15px;
+        font-size: 11px;
+    }
+
+    .hero {
+        min-height: 720px;
+    }
+
+    .hero-bottom {
+        gap: 30px;
+    }
+}
+
+
+/* ==============================
+   MOBILE RESPONSIVENESS
+================================ */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        height: 75px;
+    }
+
+    .logo-icon {
+        width: 42px;
+        height: 42px;
+        font-size: 20px;
+    }
+
+    .logo-text {
+        font-size: 18px;
+    }
+
+    .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 43px;
+        height: 43px;
+        border: 1px solid rgba(255,255,255,0.3);
+        background: var(--burgundy-light);
+        color: var(--white);
+        font-size: 19px;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    .desktop-contact {
+        display: none;
+    }
+
+    /* MOBILE MENU */
+
+    .nav-menu {
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        background: var(--charcoal);
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 10px 5% 25px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: 0.3s ease;
+    }
+
+    .nav-menu.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .nav-menu li {
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-menu li a {
+        display: block;
+        padding: 16px 0;
+        font-size: 14px;
+    }
+
+    .nav-menu li a.active::after {
+        display: none;
+    }
+
+    .mobile-contact {
+        display: block;
+        border-bottom: none !important;
+        padding-top: 15px;
+    }
+
+    .nav-menu li .nav-cta {
+        display: flex;
+        justify-content: center;
+        padding: 16px;
+    }
+
+    .hero {
+        min-height: 850px;
+        height: auto;
+        max-height: none;
+        align-items: flex-start;
+        background-position: 60% center;
+    }
+
+    .hero-overlay {
+        background:
+            linear-gradient(
+                90deg,
+                rgba(37,42,46,0.96),
+                rgba(37,42,46,0.75)
+            ),
+            linear-gradient(
+                0deg,
+                rgba(128,0,32,0.35),
+                transparent
+            );
+    }
+
+    .hero-content {
+        padding-top: 155px;
+        padding-bottom: 90px;
+    }
+
+    .hero-text h1 {
+        font-size: clamp(38px, 8vw, 55px);
+        letter-spacing: -1.5px;
+    }
+
+    .hero-text > p {
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+    .hero-trust {
+        margin-top: 35px;
+    }
+
+    .hero-bottom {
+        margin-top: 45px;
+        gap: 15px;
+        justify-content: space-between;
+    }
+
+    .hero-stat h3 {
+        font-size: 23px;
+    }
+
+    .hero-stat p {
+        font-size: 9px;
+    }
+
+    .hero-scroll {
+        display: none;
+    }
+}
+
+
+/* ==============================
+   SMALL MOBILE DEVICES
+================================ */
+
+@media (max-width: 480px) {
+
+    .container {
+        width: 90%;
+    }
+
+    .logo-text {
+        font-size: 16px;
+    }
+
+    .logo-text small {
+        font-size: 7px;
+        letter-spacing: 1.3px;
+    }
+
+    .hero {
+        min-height: 850px;
+    }
+
+    .hero-content {
+        padding-top: 135px;
+    }
+
+    .hero-label {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    .hero-text h1 {
+        font-size: 38px;
+    }
+
+    .hero-text > p {
+        font-size: 13px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn-primary,
+    .btn-outline {
+        width: 100%;
+    }
+
+    .hero-bottom {
+        gap: 9px;
+        margin-top: 40px;
+    }
+
+    .hero-stat h3 {
+        font-size: 20px;
+    }
+
+    .hero-stat p {
+        font-size: 8px;
+        line-height: 1.5;
+    }
+
+    .stat-divider {
+        height: 35px;
+    }
+
+    .hero-trust span {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+}
+
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+</style>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="header">
+        <nav class="navbar container">
+
+            <a href="#" class="logo">
+                <span class="logo-icon">
+                    <i class="fa-solid fa-building"></i>
+                </span>
+
+                <span class="logo-text">
+                    PRIME<span>BUILD</span>
+                    <small>CONSTRUCTION COMPANY</small>
+                </span>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false"
+                    aria-controls="navMenu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projects">Our Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+
+                <li class="mobile-contact">
+                    <a href="#contact" class="nav-cta">
+                        Get A Quote <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </li>
+            </ul>
+
+            <a href="#contact" class="nav-cta desktop-contact">
+                Get A Quote <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </nav>
+    </header>
+
+
+    <!-- HERO SECTION -->
+    <main>
+        <section class="hero">
+
+            <div class="hero-overlay"></div>
+
+            <div class="container hero-content">
+
+                <div class="hero-text">
+
+                    <div class="hero-label">
+                        <span></span>
+                        BUILDING THE FUTURE
+                    </div>
+
+                    <h1>
+                        Building Your
+                        <span>Vision.</span><br>
+                        Creating Your
+                        <span>Future.</span>
+                    </h1>
+
+                    <p>
+                      
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn-primary">
+                            Explore Our Projects
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                        <a href="#about" class="btn-outline">
+                            <i class="fa-regular fa-circle-play"></i>
+                            Discover More
+                        </a>
+                    </div>
+
+                    <div class="hero-trust">
+                        <div class="trust-line"></div>
+                        <span>QUALITY · INTEGRITY · EXCELLENCE</span>
+                    </div>
+
+                </div>
+
+                <div class="hero-bottom">
+
+                    <div class="hero-stat">
+                        <h3>10<span>+</span></h3>
+                        <p>Years of Experience</p>
+                    </div>
+
+                    <div class="stat-divider"></div>
+
+                    <div class="hero-stat">
+                        <h3>150<span>+</span></h3>
+                        <p>Projects Completed</p>
+                    </div>
+
+                    <div class="stat-divider"></div>
+
+                    <div class="hero-stat">
+                        <h3>100<span>%</span></h3>
+                        <p>Commitment to Quality</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="hero-scroll">
+                <span>SCROLL TO EXPLORE</span>
+                <i class="fa-solid fa-arrow-down"></i>
+            </div>
+
+        </section>
+    </main>
+
+    <script>
+       
+const menuToggle = document.getElementById("menuToggle");
+const navMenu = document.getElementById("navMenu");
+const menuIcon = menuToggle.querySelector("i");
+
+// Toggle mobile menu
+menuToggle.addEventListener("click", () => {
+
+    const isOpen = navMenu.classList.toggle("active");
+
+    menuToggle.setAttribute("aria-expanded", isOpen);
+    menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation menu" : "Open navigation menu"
+    );
+
+    menuIcon.classList.toggle("fa-bars", !isOpen);
+    menuIcon.classList.toggle("fa-xmark", isOpen);
+
+});
+
+// Close menu after clicking a navigation link
+navMenu.querySelectorAll("a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        navMenu.classList.remove("active");
+
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation menu");
+
+        menuIcon.classList.remove("fa-xmark");
+        menuIcon.classList.add("fa-bars");
+
+    });
+
+});
+
+// Close menu when resizing to desktop
+window.addEventListener("resize", () => {
+
+    if (window.innerWidth > 768) {
+
+        navMenu.classList.remove("active");
+
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation menu");
+
+        menuIcon.classList.remove("fa-xmark");
+        menuIcon.classList.add("fa-bars");
+
+    }
+
+});
+ 
+    </script>
+</body>
+</html>
